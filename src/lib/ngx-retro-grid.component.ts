@@ -13,7 +13,7 @@ export class NgxRetroGridComponent {
   set gridColor(hexColor: string) {
     const hsl = this.hexToHSL(hexColor);
 
-    this.style["--grid-color"] = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%, 0.45)`;
+    this.style["--grid-color"] = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%, 0.35)`;
   }
 
   @Input("fadeColor")
