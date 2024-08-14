@@ -1,0 +1,24 @@
+{
+  "name": "@omnedia/ngx-retro-grid",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^17.3.0",
+    "@angular/core": "^17.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "rxjs",
+    "npm",
+    "background",
+    "grid",
+    "animation"
+  ],
+  "repository": {
+    "url": "https://github.com/omnedia/ngx-retro-grid"
+  },
+  "author": "Markus Block (markus.block@omnedia.com)",
+  "license": "MIT"
+}
