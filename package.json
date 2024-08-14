@@ -1,5 +1,6 @@
 {
   "name": "@omnedia/ngx-retro-grid",
+  "description": "A simple component library to create a container with an animated background. ",
   "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^17.3.0",
