@@ -18,7 +18,7 @@
 
     .om-retro-grid-animation {
       position: absolute;
-      transform: rotateX(var(--grid-rotation) translateX(30%));
+      transform: rotateX(var(--grid-rotation)) translateX(30%);
       inset: 0;
       pointer-events: none;
       margin-left: -100%;
