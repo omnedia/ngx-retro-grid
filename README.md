@@ -1,5 +1,13 @@
 # ngx-retro-grid
 
+<a href="https://ngxui.com" target="_blank" style="display: flex;gap: .5rem;align-items: center;cursor: pointer; padding: 0 0 0 0; height: fit-content;">
+  <img src="https://ngxui.com/assets/img/ngxui-logo.png" style="width: 64px;height: 64px;">
+  <p style="font-weight: bold; padding: 0; margin: 0; font-size: 4rem">NGXUI</p>
+</a>
+
+This Library is part of the NGXUI ecosystem. <br>
+View all available components at https://ngxui.com
+
 `@omnedia/ngx-retro-grid` is an Angular library that provides a retro-styled grid background animation for Angular components. This component creates a 3D perspective grid with customizable colors, rotation, and smooth animation, perfect for adding a nostalgic or futuristic visual effect to your application.
 
 ## Features
@@ -9,6 +17,7 @@
 - Lightweight and easy to integrate as a standalone component.
 
 ## Installation
+
 Install the library using npm:
 
 ```bash
@@ -16,18 +25,20 @@ npm install @omnedia/ngx-retro-grid
 ```
 
 ## Usage
+
 Import the NgxRetroGridComponent in your Angular module or component:
 
 ```typescript
-import { NgxRetroGridComponent } from '@omnedia/ngx-retro-grid';
+import {NgxRetroGridComponent} from '@omnedia/ngx-retro-grid';
 
 @Component({
   ...
-  imports: [
-    ...
-    NgxRetroGridComponent,
-  ],
+    imports:
+[
   ...
+    NgxRetroGridComponent,
+],
+...
 })
 ```
 
@@ -67,6 +78,7 @@ Use the component in your template:
 ## Example
 
 ```html
+
 <om-retro-grid
   [gridColor]="'#00ffcc'"
   [fadeColor]="'#001f3f'"
@@ -80,6 +92,7 @@ Use the component in your template:
 This will create a retro grid background with a cyan grid, a dark blue fading effect, and a 45-degree rotation for the grid.
 
 ## Styling
+
 To customize the appearance of the grid or the container, use the styleClass input to apply your own CSS classes.
 
 ```css
@@ -91,7 +104,9 @@ To customize the appearance of the grid or the container, use the styleClass inp
 ```
 
 ## Contributing
+
 Contributions are welcome. Please submit a pull request or open an issue to discuss your ideas.
 
 ## License
+
 This project is licensed under the MIT License.
