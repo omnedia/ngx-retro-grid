@@ -1,5 +1,16 @@
-import { CommonModule } from "@angular/common";
-import { Component, Input } from "@angular/core";
+import {CommonModule, isPlatformBrowser} from "@angular/common";
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Inject,
+  Input,
+  OnDestroy,
+  PLATFORM_ID,
+  signal,
+  ViewChild
+} from "@angular/core";
 
 @Component({
   selector: "om-retro-grid",
@@ -7,8 +18,11 @@ import { Component, Input } from "@angular/core";
   imports: [CommonModule],
   templateUrl: "./ngx-retro-grid.component.html",
   styleUrl: "./ngx-retro-grid.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NgxRetroGridComponent {
+export class NgxRetroGridComponent implements AfterViewInit, OnDestroy {
+  @ViewChild("OmRetroGridRef") retroGridRef!: ElementRef<HTMLElement>;
+
   @Input("gridColor")
   set gridColor(hexColor: string) {
     const hsl = this.hexToHSL(hexColor);
@@ -30,6 +44,29 @@ export class NgxRetroGridComponent {
   styleClass?: string;
 
   style: any = {};
+
+  isInView = signal(false);
+  private intersectionObserver?: IntersectionObserver;
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: object
+  ) {
+  }
+
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.intersectionObserver = new IntersectionObserver(([entry]) => {
+        this.isInView.set(entry.isIntersecting);
+      });
+      this.intersectionObserver.observe(this.retroGridRef.nativeElement);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.intersectionObserver) {
+      this.intersectionObserver.disconnect();
+    }
+  }
 
   private hexToHSL(hex: string): { h: number; s: number; l: number } {
     if (Array.from(hex)[0] !== "#") {
@@ -71,7 +108,7 @@ export class NgxRetroGridComponent {
     let l = h;
 
     if (max === min) {
-      return { h: 0, s: 0, l: 100 };
+      return {h: 0, s: 0, l: 100};
     }
 
     const d = max - min;
@@ -95,6 +132,6 @@ export class NgxRetroGridComponent {
     l = Math.round(l);
     h = Math.round(360 * h);
 
-    return { h, s, l };
+    return {h, s, l};
   }
 }

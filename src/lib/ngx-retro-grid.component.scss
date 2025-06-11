@@ -34,11 +34,15 @@
             90deg,
             var(--grid-color) 1px,
             transparent 0
-          ),
-          linear-gradient(180deg, var(--grid-color) 1px, transparent 0);
+        ),
+        linear-gradient(180deg, var(--grid-color) 1px, transparent 0);
         background-size: 60px 60px;
         background-repeat: repeat;
         animation: om-grid-animation 15s linear infinite;
+
+        &.paused {
+          animation-play-state: paused;
+        }
       }
     }
 
@@ -46,10 +50,10 @@
       position: absolute;
       inset: 0;
       background-image: linear-gradient(
-        to top,
-        var(--fade-color),
-        transparent 60%,
-        var(--fade-color)
+          to top,
+          var(--fade-color),
+          transparent 60%,
+          var(--fade-color)
       );
     }
   }

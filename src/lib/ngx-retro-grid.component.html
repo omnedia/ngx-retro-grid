@@ -1,7 +1,7 @@
-<div class="om-retro-grid" [ngStyle]="style" [ngClass]="styleClass">
+<div class="om-retro-grid" [ngStyle]="style" [ngClass]="styleClass" #OmRetroGridRef>
   <div class="om-retro-grid-grid">
     <div class="om-retro-grid-animation">
-      <div class="om-retro-grid-animate"></div>
+      <div class="om-retro-grid-animate" [class.paused]="!isInView()"></div>
     </div>
     <div class="om-retro-grid-background"></div>
   </div>
